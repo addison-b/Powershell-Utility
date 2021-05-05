@@ -1,0 +1,2 @@
+$trigger = New-JobTrigger -Once -At 10:00AM -RepetitionInterval (New-TimeSpan -Hours 24) -RepeatIndefinitely
+Register-ScheduledJob -Name PhoneboxKill -Trigger $trigger -scriptblock {taskkill /IM "PhoneBOX.Client.exe" /F} -MaxResultCount 10
